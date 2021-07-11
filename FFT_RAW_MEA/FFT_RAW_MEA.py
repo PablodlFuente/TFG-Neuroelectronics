@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import os
 
-path = "C:/Users/Pabloo/Desktop/NEURONAS TFG/data_txt/"
+path = "[Ruta donde están los datos]"
 
 for i in os.listdir(path):
     NAME = "data_txt/"+i
@@ -24,11 +24,6 @@ for i in os.listdir(path):
 
     freq = np.fft.rfftfreq(n, d=Ts)
     freq_shift = np.fft.fftshift(freq)
-    '''
-    Otra manera de generar freq_shift es :
-    Fs = 1 / Ts
-    freq_shift = np.arange(-Fs / 2, Fs / 2, Fs / n)
-    '''
 
     FFT = np.fft.rfft(volt)  # no se por qué lo multiplico por Ts, de hecho yo creo que está mal
     FFT_shift = np.fft.fftshift(FFT) / n  # normalización y shift de FFT
